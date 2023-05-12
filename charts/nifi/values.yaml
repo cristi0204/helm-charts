@@ -194,13 +194,13 @@ service:
   type: LoadBalancer
   httpsPort: 8443
 #  nodePort: 32415
-  # annotations: 
-  #   # loadBalancerIP:
-  #   ## Load Balancer sources
-  #   ## https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
-  #   ##
-  #   loadBalancerSourceRanges:
-  #    - 172.16.100.0/24
+  annotations: 
+    # loadBalancerIP:
+    ## Load Balancer sources
+    ## https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
+    ##
+    loadBalancerSourceRanges:
+     - 172.16.100.0/24
     ## OIDC authentication requires "sticky" session on the LoadBalancer for JWT to work properly...but AWS doesn't like it on creation
     # sessionAffinity: ClientIP
     # sessionAffinityConfig:
