@@ -103,8 +103,8 @@ properties:
   clusterPort: 6007
   provenanceStorage: "8 GB"
   provenanceMaxStorageTime: "10 days"
-  siteToSite:
-    port: 10000 ## ceva eroare
+  # siteToSite:
+  #   port: 10000 ## ceva eroare
   # use properties.safetyValve to pass explicit 'key: value' pairs that overwrite other configuration
   safetyValve:
     #nifi.variable.registry.properties: "${NIFI_HOME}/example1.properties, ${NIFI_HOME}/example2.properties"
@@ -202,10 +202,10 @@ service:
     loadBalancerSourceRanges:
      - 172.16.100.0/24
     ## OIDC authentication requires "sticky" session on the LoadBalancer for JWT to work properly...but AWS doesn't like it on creation
-    # sessionAffinity: ClientIP
-    # sessionAffinityConfig:
-    #   clientIP:
-    #   timeoutSeconds: 10800
+    sessionAffinity: ClientIP
+    sessionAffinityConfig:
+      clientIP:
+      timeoutSeconds: 10800
 
   # Enables additional port/ports to nifi service for internal processors
   processors:
