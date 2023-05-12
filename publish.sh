@@ -40,7 +40,7 @@ tar -zxf "helm-v${HELM_VERSION}-linux-amd64.tar.gz"
 chmod +x linux-amd64/helm
 alias helm=/tmp/helm/bin/linux-amd64/helm
 helm version -c
-helm init -c
+#helm init -c
 
 echo ">> Checking out $GITHUB_PAGES_BRANCH branch from $GITHUB_PAGES_REPO"
 cd /tmp/helm/publish
