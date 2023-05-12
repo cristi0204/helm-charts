@@ -104,7 +104,7 @@ properties:
   provenanceStorage: "8 GB"
   provenanceMaxStorageTime: "10 days"
   siteToSite:
-    port: "10000"
+    port: 10000
   # use properties.safetyValve to pass explicit 'key: value' pairs that overwrite other configuration
   safetyValve:
     #nifi.variable.registry.properties: "${NIFI_HOME}/example1.properties, ${NIFI_HOME}/example2.properties"
@@ -200,7 +200,7 @@ service:
     ## https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
     ##
     loadBalancerSourceRanges:
-     - '172.16.100.0/24'
+     - 172.16.100.0/24
     ## OIDC authentication requires "sticky" session on the LoadBalancer for JWT to work properly...but AWS doesn't like it on creation
     sessionAffinity: ClientIP
     sessionAffinityConfig:
