@@ -338,8 +338,8 @@ extraVolumes: # this will create the volume from the directory
   # - name: disk0
   #   hostPath:
   #     path: /datadrive0
-properties:
-  customLibPath: /data1
+# properties:
+#   customLibPath: /data1
 
 
 ## Extra containers
