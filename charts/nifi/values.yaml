@@ -111,7 +111,7 @@ properties:
     nifi.web.http.network.interface.default: eth0
     # listen to loopback interface so "kubectl port-forward ..." works
     nifi.web.http.network.interface.lo: lo
-    nifi.content.repository.archive.enabled: false
+    # nifi.content.repository.archive.enabled: false
     # nifi.security.allow.anonymous.authentication: true
 
 
@@ -191,7 +191,7 @@ headless:
 
 # ui service
 service:
-  type: ClusterIP
+  type: LoadBalancer #ClusterIP
   httpsPort: 8443
 #  nodePort: 32415
   annotations: {}
@@ -199,13 +199,13 @@ service:
     ## Load Balancer sources
     ## https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
     ##
-#     loadBalancerSourceRanges:
-#      - 51.103.32.221/32 #10.10.10.0/24
+    loadBalancerSourceRanges:
+     - 172.16.100.0/24 #10.10.10.0/24
     ## OIDC authentication requires "sticky" session on the LoadBalancer for JWT to work properly...but AWS doesn't like it on creation
-    # sessionAffinity: ClientIP
-    # sessionAffinityConfig:
-    #   clientIP:
-  #     timeoutSeconds: 10800
+    sessionAffinity: ClientIP
+    sessionAffinityConfig:
+      clientIP:
+      timeoutSeconds: 10800
 
   # Enables additional port/ports to nifi service for internal processors
   processors:
@@ -292,12 +292,12 @@ resources: {}
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #  cpu: 100m
-  #  memory: 128Mi
-  # requests:
-  #  cpu: 100m
-  #  memory: 128Mi
+  limits:
+    cpu: 4
+    memory: 4Gi
+  requests:
+    cpu: 14
+    memory: 4Gi
 
 logresources:
   requests:
@@ -324,22 +324,22 @@ initContainers: {}
   #     - mountPath: /tmp/foo
   #       name: foo
 #####  my nifi container storage setting
-extraVolumeMounts: []
-extraVolumes: []
-# extraVolumeMounts:
-#   - name: disk0
-#     mountPath: /data0
-#   - name: disk1
-#     mountPath: /data1
-# extraVolumes: # this will create the volume from the directory
-#   - name: disk1
-#     hostPath:
-#       path: /datadrive1
-#   - name: disk0
-#     hostPath:
-#       path: /datadrive0
-# properties:
-#   customLibPath: /data1
+# extraVolumeMounts: []
+# extraVolumes: []
+extraVolumeMounts:
+  # - name: disk0
+  #   mountPath: /data0
+  - name: disk1
+    mountPath: /data1
+extraVolumes: # this will create the volume from the directory
+  - name: disk1
+    hostPath:
+      path: /datadrive1
+  # - name: disk0
+  #   hostPath:
+  #     path: /datadrive0
+properties:
+  customLibPath: /data1
 
 
 ## Extra containers
