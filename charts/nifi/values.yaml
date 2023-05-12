@@ -192,7 +192,7 @@ headless:
 # ui service
 service:
   type: LoadBalancer
-  loadBalancerIP: 172.16.100.231
+  # loadBalancerIP: 172.16.100.231
   httpsPort: 8443
 #  nodePort: 32415
   annotations: {}
