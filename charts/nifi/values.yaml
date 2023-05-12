@@ -191,7 +191,7 @@ headless:
 
 # ui service
 service:
-  type: ClusterIP #LoadBalancer
+  type: LoadBalancer
   httpsPort: 8443
 #  nodePort: 32415
   # annotations: 
