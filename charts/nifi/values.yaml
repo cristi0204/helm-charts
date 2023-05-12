@@ -99,7 +99,7 @@ properties:
   externalSecure: false
   isNode: false
   httpsPort: 8443
-  webProxyHost: 10.152.183.157:8443 # <clusterIP>:<NodePort> (If Nifi service is NodePort or LoadBalancer)
+  webProxyHost: 10.152.183.157:8443,51.103.32.221:8443 # <clusterIP>:<NodePort> (If Nifi service is NodePort or LoadBalancer)
   clusterPort: 6007
   provenanceStorage: "8 GB"
   provenanceMaxStorageTime: "10 days"
@@ -111,7 +111,7 @@ properties:
     nifi.web.http.network.interface.default: eth0
     # listen to loopback interface so "kubectl port-forward ..." works
     nifi.web.http.network.interface.lo: lo
-    # nifi.content.repository.archive.enabled: false
+    nifi.content.repository.archive.enabled: false
     # nifi.security.allow.anonymous.authentication: true
 
 
@@ -194,18 +194,18 @@ service:
   type: ClusterIP
   httpsPort: 8443
 #  nodePort: 32415
-  annotations:
-  #  loadBalancerIP:
+  annotations: {}
+    # loadBalancerIP:
     ## Load Balancer sources
     ## https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
     ##
-    loadBalancerSourceRanges:
-     - 172.16.100.0/24
+#     loadBalancerSourceRanges:
+#      - 51.103.32.221/32 #10.10.10.0/24
     ## OIDC authentication requires "sticky" session on the LoadBalancer for JWT to work properly...but AWS doesn't like it on creation
-    sessionAffinity: ClientIP
-    sessionAffinityConfig:
-      clientIP:
-      timeoutSeconds: 10800
+    # sessionAffinity: ClientIP
+    # sessionAffinityConfig:
+    #   clientIP:
+  #     timeoutSeconds: 10800
 
   # Enables additional port/ports to nifi service for internal processors
   processors:
@@ -287,17 +287,17 @@ persistence:
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
 ##
-resources:
+resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  limits:
-    cpu: 4
-    memory: 4Gi
-  requests:
-    cpu: 14
-    memory: 4Gi
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
 
 logresources:
   requests:
@@ -324,22 +324,22 @@ initContainers: {}
   #     - mountPath: /tmp/foo
   #       name: foo
 #####  my nifi container storage setting
-# extraVolumeMounts: []
-# extraVolumes: []
-extraVolumeMounts:
-  # - name: disk0
-  #   mountPath: /data0
-  - name: disk1
-    mountPath: /data1
-extraVolumes: # this will create the volume from the directory
-  - name: disk1
-    hostPath:
-      path: /datadrive1
-  # - name: disk0
-  #   hostPath:
-  #     path: /datadrive0
-properties:
-  customLibPath: /data1
+extraVolumeMounts: []
+extraVolumes: []
+# extraVolumeMounts:
+#   - name: disk0
+#     mountPath: /data0
+#   - name: disk1
+#     mountPath: /data1
+# extraVolumes: # this will create the volume from the directory
+#   - name: disk1
+#     hostPath:
+#       path: /datadrive1
+#   - name: disk0
+#     hostPath:
+#       path: /datadrive0
+# properties:
+#   customLibPath: /data1
 
 
 ## Extra containers
