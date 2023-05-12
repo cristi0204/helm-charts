@@ -14,7 +14,7 @@ WORKING_DIRECTORY="$PWD"
   echo "ERROR: Could not find Helm charts in $HELM_CHARTS_SOURCE"
   exit 1
 }
-[ -z "$HELM_VERSION" ] && HELM_VERSION=2.16.0
+[ -z "$HELM_VERSION" ] && HELM_VERSION=3.9.0
 [ "$CIRCLE_BRANCH" ] || {
   echo "ERROR: Environment variable CIRCLE_BRANCH is required"
   exit 1
