@@ -34,10 +34,11 @@ apk add ca-certificates git openssh
 
 echo '>> Installing Helm...'
 cd /tmp/helm/bin
-wget "https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz"
-tar -zxf "helm-v${HELM_VERSION}-linux-amd64.tar.gz"
-chmod +x linux-amd64/helm
-alias helm=/tmp/helm/bin/linux-amd64/helm
+#wget "https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz"
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+#tar -zxf "helm-v${HELM_VERSION}-linux-amd64.tar.gz"
+#chmod +x linux-amd64/helm
+#alias helm=/tmp/helm/bin/linux-amd64/helm
 helm version -c
 helm init -c
 
