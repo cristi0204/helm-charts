@@ -324,17 +324,17 @@ initContainers: {}
   #     - mountPath: /tmp/foo
   #       name: foo
 #####  my nifi container storage setting
-# extraVolumeMounts: []
-# extraVolumes: []
-extraVolumeMounts:
-  # - name: disk0
-  #   mountPath: /data0
-  - name: disk1
-    mountPath: /data1
-extraVolumes: # this will create the volume from the directory
-  - name: disk1
-    hostPath:
-      path: /datadrive1
+extraVolumeMounts: []
+extraVolumes: []
+# extraVolumeMounts:
+#   # - name: disk0
+#   #   mountPath: /data0
+#   - name: disk1
+#     mountPath: /data1
+# extraVolumes: # this will create the volume from the directory
+#   - name: disk1
+#     hostPath:
+#       path: /datadrive1
   # - name: disk0
   #   hostPath:
   #     path: /datadrive0
