@@ -99,7 +99,7 @@ properties:
   externalSecure: false
   isNode: false
   httpsPort: 8443
-  webProxyHost: 171.16.100.231:8443 # <clusterIP>:<NodePort> (If Nifi service is NodePort or LoadBalancer)
+  webProxyHost: 172.16.100.231:8443 # <clusterIP>:<NodePort> (If Nifi service is NodePort or LoadBalancer)
   clusterPort: 6007
   provenanceStorage: "8 GB"
   provenanceMaxStorageTime: "10 days"
