@@ -111,7 +111,7 @@ properties:
     nifi.web.http.network.interface.default: eth0
     # listen to loopback interface so "kubectl port-forward ..." works
     nifi.web.http.network.interface.lo: lo
-    nifi.content.repository.archive.enabled: false
+    # nifi.content.repository.archive.enabled: false
     # nifi.security.allow.anonymous.authentication: true
 
 
