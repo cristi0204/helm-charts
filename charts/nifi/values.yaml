@@ -334,7 +334,7 @@ extraVolumes[1]: # this will create the volume from the directory
   - name: disk1
     hostPath:
       path: /datadrive1
-  extraVolumeMounts[0]:
+extraVolumeMounts[0]:
   - name: disk0
     mountPath: /data0
 extraVolumes[0]: # this will create the volume from the directory
