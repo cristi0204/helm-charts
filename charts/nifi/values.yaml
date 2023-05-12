@@ -194,7 +194,7 @@ service:
   type: LoadBalancer
   httpsPort: 8443
 #  nodePort: 32415
-  annotations: {}
+  annotations:
   #  loadBalancerIP:
     ## Load Balancer sources
     ## https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
