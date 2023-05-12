@@ -103,8 +103,8 @@ properties:
   clusterPort: 6007
   provenanceStorage: "8 GB"
   provenanceMaxStorageTime: "10 days"
-  # siteToSite:
-  #   port: 10000 ## ceva eroare
+  siteToSite:
+    port: 10000
   # use properties.safetyValve to pass explicit 'key: value' pairs that overwrite other configuration
   safetyValve:
     #nifi.variable.registry.properties: "${NIFI_HOME}/example1.properties, ${NIFI_HOME}/example2.properties"
@@ -191,7 +191,7 @@ headless:
 
 # ui service
 service:
-  type: LoadBalancer
+  type: ClusterIP
   httpsPort: 8443
 #  nodePort: 32415
   annotations:
