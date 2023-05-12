@@ -202,10 +202,10 @@ service:
     loadBalancerSourceRanges:
      - 172.16.100.0/24
     ## OIDC authentication requires "sticky" session on the LoadBalancer for JWT to work properly...but AWS doesn't like it on creation
-    sessionAffinity: ClientIP
-    sessionAffinityConfig:
-      clientIP:
-      timeoutSeconds: 10800
+    # sessionAffinity: ClientIP
+    # sessionAffinityConfig:
+    #   clientIP:
+    #   timeoutSeconds: 10800
 
   # Enables additional port/ports to nifi service for internal processors
   processors:
