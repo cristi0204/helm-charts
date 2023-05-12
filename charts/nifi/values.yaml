@@ -417,8 +417,8 @@ certManager:
   # pods to pick up the new version of the CA certificate.  So default the CA
   # lifetime to 10 years to avoid that happening very often.
   # c.f. https://github.com/cert-manager/cert-manager/issues/2478#issuecomment-1095545529
-  certDuration: 2160h
-  caDuration: 87660h
+  certDuration: 2160h0m0s
+  caDuration: 87660h0m0s
 
 # ------------------------------------------------------------------------------
 # Zookeeper:
