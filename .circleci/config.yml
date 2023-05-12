@@ -10,13 +10,13 @@ jobs:
           command: cat publish.sh | sh
           environment:
             - GITHUB_PAGES_REPO: cristi0204/helm-charts
-      - run:
-          name: Verify
-          command: |
-            alias helm=/tmp/helm/bin/linux-amd64/helm
-            if [ "$CIRCLE_BRANCH" = "master" ]; then
-              helm repo add my-helm-charts https://cristi0204.github.io/helm-charts
-              helm repo update
-              helm repo list
-              helm inspect cristi0204/nifi
-            fi
+#       - run:
+#           name: Verify
+#           command: |
+#             alias helm=/tmp/helm/bin/linux-amd64/helm
+#             if [ "$CIRCLE_BRANCH" = "master" ]; then
+#               helm repo add my-helm-charts https://cristi0204.github.io/helm-charts
+#               helm repo update
+#               helm repo list
+#               helm inspect cristi0204/nifi
+#             fi
