@@ -116,7 +116,7 @@ properties:
 
 
   ## Include aditional processors
-  customLibPath: /data1
+  customLibPath: /data1/lec-connectors
 
 ## Include additional libraries in the Nifi containers by using the postStart handler
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/
