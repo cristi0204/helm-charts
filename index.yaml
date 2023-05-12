@@ -3,7 +3,7 @@ entries:
   nifi:
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-05-12T18:48:17.654255783Z"
+    created: "2023-05-12T19:05:32.126322208Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -24,9 +24,9 @@ entries:
       version: ~1.2.4
     description: Apache NiFi is a software project from the Apache Software Foundation
       designed to automate the flow of data between software systems.
-    digest: 94d341a4298dd735f0ea5c694b582cdb91179bec3078e893e2e0e1d67b654f6b
+    digest: 35664a56a1474bb7824e980bb06a078e307283882542148ff295ed7d44c29f13
     name: nifi
     urls:
     - nifi/nifi-1.0.0.tgz
     version: 1.0.0
-generated: "2023-05-12T18:48:17.646394302Z"
+generated: "2023-05-12T19:05:32.118451337Z"
