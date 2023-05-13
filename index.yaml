@@ -3,7 +3,35 @@ entries:
   nifi:
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-05-13T08:01:49.803996514Z"
+    created: "2023-05-13T08:05:05.402268556Z"
+    dependencies:
+    - condition: zookeeper.enabled
+      name: zookeeper
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.2.7
+    - alias: registry
+      condition: registry.enabled
+      name: nifi-registry
+      repository: https://dysnix.github.io/charts/
+      version: 1.0.0
+    - condition: ca.enabled
+      name: ca
+      repository: ""
+      version: 1.0.1
+    - condition: openldap.enabled
+      name: openldap
+      repository: https://charts.helm.sh/stable
+      version: ~1.2.4
+    description: Apache NiFi is a software project from the Apache Software Foundation
+      designed to automate the flow of data between software systems.
+    digest: e6967f980bf7f10424e23a48cde9476ed1c6e0c9d8dea1068877d24729bdd72c
+    name: nifi
+    urls:
+    - nifi/nifi-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
+    appVersion: 1.16.3
+    created: "2023-05-13T08:05:05.395196Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -31,7 +59,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-05-13T08:01:49.796092528Z"
+    created: "2023-05-13T08:05:05.387875429Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -59,7 +87,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-05-13T08:01:49.786173137Z"
+    created: "2023-05-13T08:05:05.380906463Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -85,4 +113,4 @@ entries:
     urls:
     - nifi/nifi-1.0.0.tgz
     version: 1.0.0
-generated: "2023-05-13T08:01:49.778400148Z"
+generated: "2023-05-13T08:05:05.372737761Z"
