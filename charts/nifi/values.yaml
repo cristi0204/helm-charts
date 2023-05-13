@@ -234,7 +234,7 @@ ingress:
   annotations: {}
   tls: []
   hosts: []
-  path: /
+  path: /nifi
   # If you want to change the default path, see this issue https://github.com/cetic/helm-nifi/issues/22
 
 # Amount of memory to give the NiFi java heap
