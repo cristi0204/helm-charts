@@ -1,6 +1,6 @@
 ---
 # Number of nifi nodes
-#replicaCount: 1
+replicaCount: 1
 
 # horizontalPodAutoscaler settings (hpa.yaml)
 hpa:
