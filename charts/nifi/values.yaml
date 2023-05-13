@@ -4,7 +4,7 @@ replicaCount: 1
 
 # horizontalPodAutoscaler settings (hpa.yaml)
 hpa:
-  enabled: true
+  enabled: false
   maxReplicas: 1
   minReplicas: 1
   averageCpuUtilization: 75 
