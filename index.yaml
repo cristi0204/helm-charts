@@ -3,7 +3,35 @@ entries:
   nifi:
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-05-13T08:16:28.379204038Z"
+    created: "2023-05-13T11:52:02.645325719Z"
+    dependencies:
+    - condition: zookeeper.enabled
+      name: zookeeper
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.2.7
+    - alias: registry
+      condition: registry.enabled
+      name: nifi-registry
+      repository: https://dysnix.github.io/charts/
+      version: 1.0.0
+    - condition: ca.enabled
+      name: ca
+      repository: ""
+      version: 1.0.1
+    - condition: openldap.enabled
+      name: openldap
+      repository: https://charts.helm.sh/stable
+      version: ~1.2.4
+    description: Apache NiFi is a software project from the Apache Software Foundation
+      designed to automate the flow of data between software systems.
+    digest: 116204d98fdb278cefe55c7d339526d70f5403d42eae529c7663603586b3cf8f
+    name: nifi
+    urls:
+    - nifi/nifi-1.9.0.tgz
+    version: 1.9.0
+  - apiVersion: v2
+    appVersion: 1.16.3
+    created: "2023-05-13T11:52:02.638594308Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -31,7 +59,7 @@ entries:
     version: 1.0.3
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-05-13T08:16:28.371839348Z"
+    created: "2023-05-13T11:52:02.63123401Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -59,7 +87,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-05-13T08:16:28.364365236Z"
+    created: "2023-05-13T11:52:02.623399462Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -87,7 +115,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-05-13T08:16:28.356996498Z"
+    created: "2023-05-13T11:52:02.616226485Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -113,4 +141,4 @@ entries:
     urls:
     - nifi/nifi-1.0.0.tgz
     version: 1.0.0
-generated: "2023-05-13T08:16:28.348616019Z"
+generated: "2023-05-13T11:52:02.608176511Z"
