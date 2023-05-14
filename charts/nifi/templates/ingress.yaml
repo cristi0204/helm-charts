@@ -50,7 +50,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: nifi-registry
+                name: apache-nifi-registry
                 port: 
                   number: 18080
 
