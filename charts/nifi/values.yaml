@@ -207,7 +207,7 @@ service:
     sessionAffinity: ClientIP
     sessionAffinityConfig:
       clientIP:
-      timeoutSeconds: 10800
+        timeoutSeconds: 10800
 
   # Enables additional port/ports to nifi service for internal processors
   processors:
