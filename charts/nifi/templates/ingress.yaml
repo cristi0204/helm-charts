@@ -46,7 +46,7 @@ spec:
     - host: nifi-registry.local
       http:
         paths:
-          - path: /nifi-registry
+          - path: /
             pathType: Prefix
             backend:
               service:
