@@ -15,8 +15,8 @@ hpa:
 image:
   repository: apache/nifi
   tag: "1.21.0"
-  tag: "1.20.0"
-  tag: "1.16.3"
+  # tag: "1.20.0"
+  # tag: "1.16.3"
   pullPolicy: "IfNotPresent"
 
   ## Optionally specify an imagePullSecret.
