@@ -43,5 +43,16 @@ spec:
                 name: {{ $fullName }}
                 port: 
                   number: {{ $ingressHttpsPort }}
+    - host: nifi-registry.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: apache-nifi-registry
+                port: 
+                  number: 18080
+
   {{- end }}
 {{- end }}
