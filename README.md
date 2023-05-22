@@ -11,7 +11,7 @@ Here is my workflow to publish the chart:
 > git push origin master
   ↓ Push
 +--------------+
-| GitHub       | https://github.com/int128/kubernetes-dashboard-proxy
+| GitHub       | https://github.com/cristi0204/kubernetes-dashboard-proxy
 +--------------+
   ↓ Webhook
 +--------------+
@@ -19,20 +19,20 @@ Here is my workflow to publish the chart:
 +--------------+
   ↓ Push
 +--------------+
-| GitHub       | https://github.com/int128/helm-charts
+| GitHub       | https://github.com/cristi0204/helm-charts
 +--------------+
   ↓ Publish
 +--------------+
-| GitHub Pages | https://int128.github.io/helm-charts
+| GitHub Pages | https://cristi0204.github.io/helm-charts
 +--------------+
 ```
 
 You can install the chart by the following:
 
 ```sh
-helm repo add int128 https://int128.github.io/helm-charts
+helm repo add cristi0204 https://cristi0204.github.io/helm-charts
 helm repo update
-helm install int128/kubernetes-dashboard-proxy
+helm install cristi0204/kubernetes-dashboard-proxy
 ```
 
 ## Getting Started
