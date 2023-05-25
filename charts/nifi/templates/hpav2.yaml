@@ -15,7 +15,16 @@ spec:
   maxReplicas: {{ .Values.hpav2.maxReplicas }}
   behavior:
     scaleUp:
+      policies:
+        - periodSeconds: 60
+          type: Pods
+          value: 1
       stabilizationWindowSeconds: {{ .Values.hpav2.stabilizationWindowSeconds }}
+    scaleDown:
+      policies:
+        - periodSeconds: 60
+          type: Pods
+          value: 1
   metrics:
     - type: Resource
       resource:
