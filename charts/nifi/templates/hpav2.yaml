@@ -3,7 +3,7 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ template "apache-nifi.fullname" . }}-hpa
+  name: {{ template "apache-nifi.fullname" . }}-hpav2
   labels:
     app.kubernetes.io/name: {{ include "apache-nifi.name" . | quote }}
 spec:
