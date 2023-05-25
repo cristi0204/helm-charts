@@ -11,8 +11,8 @@ spec:
     apiVersion: apps/v1
     kind: StatefulSet
     name: {{ template "apache-nifi.fullname" . }}
-  minReplicas: {{ .Values.hpa.minReplicas }}
-  maxReplicas: {{ .Values.hpa.maxReplicas }}
+  minReplicas: {{ .Values.hpav2.minReplicas }}
+  maxReplicas: {{ .Values.hpav2.maxReplicas }}
   behavior:
     scaleUp:
       stabilizationWindowSeconds: {{ .Values.hpav2.stabilizationWindowSeconds }}
