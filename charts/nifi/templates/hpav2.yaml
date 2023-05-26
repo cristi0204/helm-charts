@@ -26,7 +26,7 @@ spec:
         - periodSeconds: 60
           type: Pods
           value: 1
-      selectPolicy: Min
+      selectPolicy: Max
       stabilizationWindowSeconds: {{ .Values.hpav2.stabilizationWindowSeconds }}
   metrics:
     - type: Resource
