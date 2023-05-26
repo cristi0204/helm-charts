@@ -2,8 +2,36 @@ apiVersion: v1
 entries:
   nifi:
   - apiVersion: v2
+    appVersion: 1.21.2
+    created: "2023-05-26T07:15:42.184638814Z"
+    dependencies:
+    - condition: zookeeper.enabled
+      name: zookeeper
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.2.7
+    - alias: registry
+      condition: registry.enabled
+      name: nifi-registry
+      repository: https://dysnix.github.io/charts/
+      version: 1.0.0
+    - condition: ca.enabled
+      name: ca
+      repository: ""
+      version: 1.0.1
+    - condition: openldap.enabled
+      name: openldap
+      repository: https://charts.helm.sh/stable
+      version: ~1.2.4
+    description: Apache NiFi is a software project from the Apache Software Foundation
+      designed to automate the flow of data between software systems.
+    digest: 75b575c3f69f0aa381790698629b32b46f499d9a8629409c2f288bbaf3418404
+    name: nifi
+    urls:
+    - nifi/nifi-1.21.2.tgz
+    version: 1.21.2
+  - apiVersion: v2
     appVersion: 1.21.1
-    created: "2023-05-26T06:53:54.500532022Z"
+    created: "2023-05-26T07:15:42.177958633Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -31,7 +59,7 @@ entries:
     version: 1.21.1
   - apiVersion: v2
     appVersion: 1.21.0.1
-    created: "2023-05-26T06:53:54.492849446Z"
+    created: "2023-05-26T07:15:42.170310477Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -59,7 +87,7 @@ entries:
     version: 1.21.0
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-05-26T06:53:54.522009298Z"
+    created: "2023-05-26T07:15:42.192600472Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -87,7 +115,7 @@ entries:
     version: 1.9.0
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-05-26T06:53:54.485944135Z"
+    created: "2023-05-26T07:15:42.162438345Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -115,7 +143,7 @@ entries:
     version: 1.0.3
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-05-26T06:53:54.477920493Z"
+    created: "2023-05-26T07:15:42.155357739Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -143,7 +171,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-05-26T06:53:54.469725219Z"
+    created: "2023-05-26T07:15:42.146769167Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -171,7 +199,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-05-26T06:53:54.461604234Z"
+    created: "2023-05-26T07:15:42.138844498Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -199,7 +227,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: 1.21.0
-    created: "2023-05-26T06:53:54.450416459Z"
+    created: "2023-05-26T07:15:42.122012798Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -227,7 +255,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 1.21.0
-    created: "2023-05-26T06:53:54.44239053Z"
+    created: "2023-05-26T07:15:42.110201099Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -253,4 +281,4 @@ entries:
     urls:
     - nifi/nifi-0.0.1.tgz
     version: 0.0.1
-generated: "2023-05-26T06:53:54.434212667Z"
+generated: "2023-05-26T07:15:42.100685124Z"
