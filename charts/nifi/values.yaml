@@ -13,9 +13,12 @@ hpav2:
   enabled: false
   maxReplicas: 1
   minReplicas: 1
-  averageCpuUtilization: 75
-  averageMemoryUtilization: 80
+  averageCpuUtilization: 100
+  averageMemoryUtilization: 100
   stabilizationWindowSeconds: 60
+  periodSeconds:
+    scaleDown: 15
+    scaleUP: 15
 
 ## Set default image, imageTag, and imagePullPolicy.
 ## ref: https://hub.docker.com/r/apache/nifi/

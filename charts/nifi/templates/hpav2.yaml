@@ -16,14 +16,14 @@ spec:
   behavior:
     scaleUp:
       policies:
-        - periodSeconds: 60
+        - periodSeconds: {{ .Values.hpav2.periodSeconds.scaleUP }}
           type: Pods
           value: 1
       selectPolicy: Max
       stabilizationWindowSeconds: {{ .Values.hpav2.stabilizationWindowSeconds }}
     scaleDown:
       policies:
-        - periodSeconds: 60
+        - periodSeconds: {{ .Values.hpav2.periodSeconds.scaleDown }}
           type: Pods
           value: 1
       selectPolicy: Max
