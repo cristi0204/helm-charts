@@ -7,10 +7,10 @@ entries:
           description: "Added image reference by digest."
     apiVersion: v1
     appVersion: 2.1.4
-    created: "2023-05-29T13:55:43.725315709Z"
+    created: "2023-05-29T13:59:36.458897054Z"
     description: Fast and lightweight log processor and forwarder or Linux, OSX and
       BSD family operating systems.
-    digest: f1ac0e88555f15fecc4dfa0ca21534f65a3164d2866a2aa2a273c38e629cf7f7
+    digest: ca532a78c3156ba771ddb018714235d174d40b7440600f8fa255e5c1cf96a8dd
     home: https://fluentbit.io/
     icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/fluentd/fluentbit/icon/fluentbit-icon-color.svg
     keywords:
@@ -35,7 +35,7 @@ entries:
   nifi:
   - apiVersion: v2
     appVersion: 1.21.2
-    created: "2023-05-29T13:55:43.791605841Z"
+    created: "2023-05-29T13:59:36.522941356Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -56,14 +56,14 @@ entries:
       version: ~1.2.4
     description: Apache NiFi is a software project from the Apache Software Foundation
       designed to automate the flow of data between software systems.
-    digest: 2e6ffccbf9b8315076fb4449cb1ecffd787cd236f0b6eec8144281335cba960a
+    digest: 68ae61d3e484c48a09840593b5da08686faf002ba0a153e0c5ca19e9cbe15699
     name: nifi
     urls:
     - nifi/nifi-1.21.2.tgz
     version: 1.21.2
   - apiVersion: v2
     appVersion: 1.21.1
-    created: "2023-05-29T13:55:43.784147418Z"
+    created: "2023-05-29T13:59:36.516367417Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -91,7 +91,7 @@ entries:
     version: 1.21.1
   - apiVersion: v2
     appVersion: 1.21.0.1
-    created: "2023-05-29T13:55:43.777682222Z"
+    created: "2023-05-29T13:59:36.509234366Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -119,7 +119,7 @@ entries:
     version: 1.21.0
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-05-29T13:55:43.798660231Z"
+    created: "2023-05-29T13:59:36.529998054Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -147,7 +147,7 @@ entries:
     version: 1.9.0
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-05-29T13:55:43.770590135Z"
+    created: "2023-05-29T13:59:36.501921715Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -175,7 +175,7 @@ entries:
     version: 1.0.3
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-05-29T13:55:43.763400553Z"
+    created: "2023-05-29T13:59:36.49471576Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -203,7 +203,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-05-29T13:55:43.756858842Z"
+    created: "2023-05-29T13:59:36.488286842Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -231,7 +231,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-05-29T13:55:43.749465813Z"
+    created: "2023-05-29T13:59:36.481117835Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -259,7 +259,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: 1.21.0
-    created: "2023-05-29T13:55:43.742817934Z"
+    created: "2023-05-29T13:59:36.474569077Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -287,7 +287,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 1.21.0
-    created: "2023-05-29T13:55:43.73493218Z"
+    created: "2023-05-29T13:59:36.466759766Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -313,4 +313,4 @@ entries:
     urls:
     - nifi/nifi-0.0.1.tgz
     version: 0.0.1
-generated: "2023-05-29T13:55:43.723492914Z"
+generated: "2023-05-29T13:59:36.45709223Z"
