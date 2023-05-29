@@ -298,13 +298,13 @@ terminationGracePeriodSeconds:
 priorityClassName: ""
 
 env:
-- name: WorkspaceId
+  - name: WorkspaceId
     valueFrom:
     secretKeyRef:
         name: fluentbit-azure-secrets
         key: WorkspaceId
 
-- name: SharedKey
+  - name: SharedKey
     valueFrom:
     secretKeyRef:
         name: fluentbit-azure-secrets
