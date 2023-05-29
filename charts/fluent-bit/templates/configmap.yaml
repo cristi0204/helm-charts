@@ -12,7 +12,10 @@ data:
     {{- (tpl .Values.config.service $)  | nindent 4 }}
     {{- (tpl .Values.config.inputs $)  | nindent 4 }}
     {{- (tpl .Values.config.filters $)  | nindent 4 }}
+  {{- if .Values.destination.elasticsearch }}
+  elastic-out.conf: |
     {{- (tpl .Values.config.outputs $)  | nindent 4 }}
+  {{- end -}}
   {{- range $key, $val := .Values.config.upstream }}
   {{ $key }}: |
     {{- (tpl $val $) | nindent 4 }}
