@@ -372,6 +372,9 @@ config:
         HTTP_Listen 0.0.0.0
         HTTP_Port {{ .Values.metricsPort }}
         Health_Check On
+    @INCLUDE AzureAnalytics.conf
+    @INCLUDE custom_parsers.conf
+    # @INCLUDE output-azure.conf
 
   ## https://docs.fluentbit.io/manual/pipeline/inputs
   inputs: |
