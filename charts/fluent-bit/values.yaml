@@ -1,5 +1,9 @@
 # Default values for fluent-bit.
 
+destination:
+  elasticsearch: false
+  azureanalytics: true
+
 # kind -- DaemonSet or Deployment
 kind: DaemonSet
 
