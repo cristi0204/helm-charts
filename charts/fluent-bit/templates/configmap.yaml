@@ -21,10 +21,10 @@ data:
   {{ $key }}: |
     {{- (tpl $val $) | nindent 4 }}
   {{- end }}
-  {{- range $key, $val := .Values.config.MyParsers }}
-  {{ $key }}: |
-    {{- (tpl $val $) | nindent 4 }}
-  {{- end }}
+  # {{- range $key, $val := .Values.config.MyParsers }}
+  # {{ $key }}: |
+  #   {{- (tpl $val $) | nindent 4 }}
+  # {{- end }}
   {{- range $key, $val := .Values.config.AzureAnalytics }}
   {{ $key }}: |
     {{- (tpl $val $) | nindent 4 }}
