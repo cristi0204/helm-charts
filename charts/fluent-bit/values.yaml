@@ -567,12 +567,14 @@ config:
           Match kube.*
           Customer_ID     ${WorkspaceId}
           Shared_Key      ${SharedKey}
+          Log_Type        fluentbit_kube
 
       [OUTPUT]
           Name azure
           Match host.*
           Customer_ID     ${WorkspaceId}
           Shared_Key      ${SharedKey}
+          Log_Type        fluentbit_host
 
 # The config volume is mounted by default, either to the existingConfigMap value, or the default of "fluent-bit.fullname"
 volumeMounts:
