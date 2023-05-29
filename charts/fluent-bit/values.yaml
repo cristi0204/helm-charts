@@ -300,15 +300,15 @@ priorityClassName: ""
 env:
   - name: WorkspaceId
     valueFrom:
-    secretKeyRef:
-        name: fluentbit-azure-secrets
-        key: WorkspaceId
+      secretKeyRef:
+          name: fluentbit-azure-secrets
+          key: WorkspaceId
 
   - name: SharedKey
     valueFrom:
-    secretKeyRef:
-        name: fluentbit-azure-secrets
-        key: SharedKey
+      secretKeyRef:
+          name: fluentbit-azure-secrets
+          key: SharedKey
 #env: []
 #  - name: FOO
 #    value: "bar"
