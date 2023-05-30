@@ -178,3 +178,17 @@ It does the following steps:
 1. `helm package` for each chart.
 1. `helm repo index` for all charts.
 1. If the master branch is pushed, publish the charts.
+
+
+######## magma orc8r ##############
+
+bootstrapper:
+  spec:
+    template:
+      spec:
+        containers:
+          volumeMounts:
+            - mountPath: /var/opt/magma/certs/rootCA.pem
+              name: root
+              readOnly: true
+              subPath: tls.crt

@@ -380,24 +380,58 @@ config:
   inputs: |
     [INPUT]
         Name tail
-        Path /var/log/containers/*.log
+        Path /var/log/containers/orc8r-*.log
         # multiline.parser docker, cri
         parser cri
-        Tag kube.*
+        Tag k8s-magma.*
         Mem_Buf_Limit 5MB
         Skip_Long_Lines On
+
+    [INPUT]
+        Name tail
+        Path /var/log/containers/nms-*.log
+        # multiline.parser docker, cri
+        parser cri
+        Tag k8s-magma.*
+        Mem_Buf_Limit 5MB
+        Skip_Long_Lines On
+
+    [INPUT]
+        Name tail
+        Path /var/log/containers/argocd-*.log
+        # multiline.parser docker, cri
+        parser cri
+        Tag k8s-argocd.*
+        Mem_Buf_Limit 5MB
+        Skip_Long_Lines On
+
+    [INPUT]
+        Name tail
+        Path /var/log/containers/nginx-ingress-*.log
+        # multiline.parser docker, cri
+        parser nginx
+        Tag k8s-nginx.*
+        Mem_Buf_Limit 5MB
+        Skip_Long_Lines On
+
 
     [INPUT]
         Name systemd
         Tag host.*
         Systemd_Filter _SYSTEMD_UNIT=kubelet.service
         Read_From_Tail On
+    [INPUT]
+        Name cpu
+        Tag  host_cpu
+    [INPUT]
+        Name mem
+        Tag host_memory
 
   ## https://docs.fluentbit.io/manual/pipeline/filters
   filters: |
     [FILTER]
         Name kubernetes
-        Match kube.*
+        Match k8s-*
         Merge_Log On
         Keep_Log Off
         K8S-Logging.Parser On
@@ -568,17 +602,31 @@ config:
     AzureAnalytics.conf: |
       [OUTPUT]
           Name azure
-          Match kube.*
+          Match k8s-magma.*
           Customer_ID     ${WorkspaceId}
           Shared_Key      ${SharedKey}
-          Log_Type        fluentbit_kube
+          Log_Type        dell_magma5g
 
       [OUTPUT]
           Name azure
-          Match host.*
+          Match k8s-argocd.*
           Customer_ID     ${WorkspaceId}
           Shared_Key      ${SharedKey}
-          Log_Type        fluentbit_host
+          Log_Type        dell_argocd
+
+      [OUTPUT]
+          Name azure
+          Match k8s-nginx.*
+          Customer_ID     ${WorkspaceId}
+          Shared_Key      ${SharedKey}
+          Log_Type        dell_nginx
+
+      [OUTPUT]
+          Name azure
+          Match host*
+          Customer_ID     ${WorkspaceId}
+          Shared_Key      ${SharedKey}
+          Log_Type        dell_host
 
 # The config volume is mounted by default, either to the existingConfigMap value, or the default of "fluent-bit.fullname"
 volumeMounts:
