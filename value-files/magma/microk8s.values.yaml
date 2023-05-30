@@ -109,9 +109,10 @@ metrics:
           emptyDir: {}
       prometheusConfig:
         volumeSpec:
+          emptyDir: {}
           hostPath:
-            path: /configs/prometheus
-            type: DirectoryOrCreate
+#             path: /configs/prometheus
+#             type: DirectoryOrCreate
   prometheus:
     create: true
     
