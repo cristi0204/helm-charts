@@ -79,7 +79,7 @@ nms:
       secrets: true
       deployment: true
       service: true
-      rbac: true
+      #rbac: true
       #labels:
       #node_selector_key: extraRuntime
       #node_selector_value: virtlet
@@ -89,7 +89,7 @@ nms:
         api:
           targetPort: 9443
 
-  rbac: true
+  #rbac: true
 
 ## Metrics
 metrics:
