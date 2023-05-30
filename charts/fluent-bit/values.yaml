@@ -383,36 +383,44 @@ config:
         Path /var/log/containers/orc8r-*.log
         # multiline.parser docker, cri
         parser cri
+        DB /var/log/fluentbit_magma.db
         Tag k8s-magma.*
         Mem_Buf_Limit 5MB
         Skip_Long_Lines On
+        Refresh_Interval 10
 
     [INPUT]
         Name tail
         Path /var/log/containers/nms-*.log
         # multiline.parser docker, cri
         parser cri
+        DB /var/log/fluentbit_magma.db
         Tag k8s-magma.*
         Mem_Buf_Limit 5MB
         Skip_Long_Lines On
+        Refresh_Interval 10
 
     [INPUT]
         Name tail
         Path /var/log/containers/argocd-*.log
         # multiline.parser docker, cri
         parser cri
+        DB /var/log/fluentbit_argocd.db
         Tag k8s-argocd.*
         Mem_Buf_Limit 5MB
         Skip_Long_Lines On
+        Refresh_Interval 10
 
     [INPUT]
         Name tail
         Path /var/log/containers/nginx-ingress-*.log
         # multiline.parser docker, cri
         parser nginx
+        DB /var/log/fluentbit_ingress.db
         Tag k8s-nginx.*
         Mem_Buf_Limit 5MB
         Skip_Long_Lines On
+        Refresh_Interval 10
 
 
     [INPUT]
