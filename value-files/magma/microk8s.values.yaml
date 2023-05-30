@@ -47,6 +47,8 @@ controller:
 nms:
   secret:
     certs: orc8r-nms-tls
+  certs:
+    enabled: true
   imagePullSecrets:
     - name: orc8r-secrets-registry
   pod:
