@@ -48,6 +48,10 @@ nms:
   secret:
     certs: orc8r-nms-tls
   certs:
+  deployment:
+    spec:
+      ssl_cert_name: tls.crt
+      ssl_cert_key_name: tls.key
     enabled: true
   imagePullSecrets:
     - name: orc8r-secrets-registry
