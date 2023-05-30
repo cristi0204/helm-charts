@@ -152,4 +152,4 @@ nginx:
     pullPolicy: IfNotPresent
 
   spec:
-    hostname: controller.magma.test
+    hostname: controller.magma.dell
