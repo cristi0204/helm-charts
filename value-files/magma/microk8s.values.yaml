@@ -1,9 +1,23 @@
 # Be sure to replace IMAGE_REGISTRY_URL and IMAGE_TAG with your specific values.
+# enable certificates via cert-manager
 certs:
   enabled: true
   create: true
   domainName: magma.dell
 
+# fix rootCA.pem not found
+bootstrapper:
+  deployment:
+    spec:
+      template:
+        spec:
+          containers:
+            volumeMounts:
+              - mountPath: /var/opt/magma/certs/rootCA.pem
+                name: root
+                readOnly: true
+                subPath: tls.crt
+      
 secrets:
   create: true
   docker:
@@ -62,6 +76,8 @@ nms:
       magmalte:
         server: 1
   magmalte:
+    secret:
+      certs: orc8r-nms-tls
     manifests:
       configmap: true
       #secrets: true
@@ -109,10 +125,10 @@ metrics:
           emptyDir: {}
       prometheusConfig:
         volumeSpec:
-          emptyDir: {}
+#           emptyDir: {}
           hostPath:
-#             path: /configs/prometheus
-#             type: DirectoryOrCreate
+            path: /configs/prometheus
+            type: DirectoryOrCreate
   prometheus:
     create: true
     
