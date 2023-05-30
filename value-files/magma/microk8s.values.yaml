@@ -60,7 +60,8 @@ nms:
   magmalte:
     manifests:
       configmap: true
-      secrets: true
+      #secrets: true
+      certs: true
       deployment: true
       service: true
     #      rbac: true
