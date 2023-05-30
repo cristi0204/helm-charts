@@ -93,7 +93,10 @@ env:
         key: SharedKey
 
 
-
+# adjust kernel settings
+sudo sysctl -w fs.inotify.max_queued_events=50000
+sudo sysctl -w fs.inotify.max_user_instances=16383
+sudo sysctl -w  fs.inotify.max_user_watches=50000
 
 
 config:
