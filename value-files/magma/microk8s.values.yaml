@@ -107,7 +107,7 @@ metrics:
             type: DirectoryOrCreate
   prometheus:
     create: true
-
+    
   prometheusConfigurer:
     create: true
   alertmanagerConfigurer:
