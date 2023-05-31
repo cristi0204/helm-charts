@@ -608,23 +608,23 @@ config:
 #           Match foo.*
 #           Host bar
     AzureAnalytics.conf: |
-      [OUTPUT]
-          Name azure
-          Match k8s-magma.*
-          Customer_ID     ${WorkspaceId}
-          Shared_Key      ${SharedKey}
-          Log_Type        dell_magma5g
+      # [OUTPUT]
+      #     Name azure
+      #     Match k8s-magma.*
+      #     Customer_ID     ${WorkspaceId}
+      #     Shared_Key      ${SharedKey}
+      #     Log_Type        dell_magma5g
+
+      # [OUTPUT]
+      #     Name azure
+      #     Match k8s-argocd.*
+      #     Customer_ID     ${WorkspaceId}
+      #     Shared_Key      ${SharedKey}
+      #     Log_Type        dell_argocd
 
       [OUTPUT]
           Name azure
-          Match k8s-argocd.*
-          Customer_ID     ${WorkspaceId}
-          Shared_Key      ${SharedKey}
-          Log_Type        dell_argocd
-
-      [OUTPUT]
-          Name azure
-          Match k8s-nginx.*
+          Match k8s-orc8r.*
           Customer_ID     ${WorkspaceId}
           Shared_Key      ${SharedKey}
           Log_Type        dell_nginx
