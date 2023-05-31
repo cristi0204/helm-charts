@@ -1,0 +1,14 @@
+metrics:
+  imagePullSecrets:
+    - name: orc8r-secrets-registry
+  metrics:
+    volumes:
+      prometheusData:
+        volumeSpec:
+          emptyDir: {}
+      prometheusConfig:
+        volumeSpec:
+          emptyDir: {}
+  # prometheusCache:
+  #   create: true
+  #   limit: 500000

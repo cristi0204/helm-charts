@@ -1,9 +1,23 @@
 # Be sure to replace IMAGE_REGISTRY_URL and IMAGE_TAG with your specific values.
+# enable certificates via cert-manager
 certs:
   enabled: true
   create: true
   domainName: magma.dell
 
+# fix rootCA.pem not found
+bootstrapper:
+  deployment:
+    spec:
+      template:
+        spec:
+          containers:
+            volumeMounts:
+              - mountPath: /var/opt/magma/certs/rootCA.pem
+                name: root
+                readOnly: true
+                subPath: tls.crt
+      
 secrets:
   create: true
   docker:
@@ -45,8 +59,15 @@ controller:
 
 ## NMS
 nms:
-  secret:
-    certs: orc8r-nms-tls
+#   enabled: true
+#   secret:
+#     certs: orc8r-nms-tls
+#   certs:
+#     enabled: true
+#   deployment:
+#     spec:
+#       ssl_cert_name: tls.crt
+#       ssl_cert_key_name: tls.key
   imagePullSecrets:
     - name: orc8r-secrets-registry
   pod:
@@ -56,38 +77,41 @@ nms:
       magmalte:
         server: 1
   magmalte:
+    secret:
+      certs: orc8r-nms-tls
     manifests:
-      configmap: true
-      secrets: true
-      deployment: true
-      service: true
+#       configmap: true
+#       secrets: true
+#       certs: true
+#       deployment: true
+#       service: true
     #      rbac: true
     env:
-      api_host: orc8r-nginx-proxy:443
+#       api_host: orc8r-nginx-proxy:443
       mysql_host: postgresql
       #labels:
       #node_selector_key: extraRuntime
       #node_selector_value: virtlet
-    image:
-      repository: linuxfoundation.jfrog.io/magma-docker/magmalte  # change this
-      tag: 1.7.0  # change this
-  nginx:
-    manifests:
-      configmap: true
-      secrets: true
-      deployment: true
-      service: true
-      rbac: true
-      #labels:
-      #node_selector_key: extraRuntime
-      #node_selector_value: virtlet
-    service:
-      type: LoadBalancer
-      port:
-        api:
-          targetPort: 9443
+#     image:
+#       repository: linuxfoundation.jfrog.io/magma-docker/magmalte  # change this
+#       tag: 1.7.0  # change this
+#   nginx:
+#     manifests:
+#       configmap: true
+#       secrets: true
+#       deployment: true
+#       service: true
+#       #rbac: true
+#       #labels:
+#       #node_selector_key: extraRuntime
+#       #node_selector_value: virtlet
+#     service:
+#       type: LoadBalancer
+#       port:
+#         api:
+#           targetPort: 9443
 
-  rbac: true
+  #rbac: true
 
 ## Metrics
 metrics:
@@ -102,12 +126,13 @@ metrics:
           emptyDir: {}
       prometheusConfig:
         volumeSpec:
-          hostPath:
-            path: /configs/prometheus
-            type: DirectoryOrCreate
+          emptyDir: {}
+#           hostPath:
+#             path: /configs/prometheus
+#             type: DirectoryOrCreate
   prometheus:
     create: true
-
+    
   prometheusConfigurer:
     create: true
   alertmanagerConfigurer:
@@ -150,4 +175,4 @@ nginx:
     pullPolicy: IfNotPresent
 
   spec:
-    hostname: controller.magma.test
+    hostname: controller.magma.dell
