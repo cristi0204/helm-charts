@@ -182,13 +182,15 @@ It does the following steps:
 
 ######## magma orc8r ##############
 
+
 bootstrapper:
-  spec:
-    template:
-      spec:
-        containers:
-          volumeMounts:
-            - mountPath: /var/opt/magma/certs/rootCA.pem
-              name: root
-              readOnly: true
-              subPath: tls.crt
+  deployment:
+    spec:
+      template:
+        spec:
+          containers:
+            volumeMounts:
+              - mountPath: /var/opt/magma/certs/rootCA.pem
+                name: root
+                readOnly: true
+                subPath: tls.crt

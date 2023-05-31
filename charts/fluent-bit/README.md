@@ -64,7 +64,7 @@ kubectl create secret generic fluentbit-azure-secrets -n orc8r \
   --from-literal=SharedKey=$(az monitor log-analytics workspace get-shared-keys -g $LogAppRG -n $LogAppName --query primarySharedKey -o tsv)
 
 # using strings
-kubectl create secret generic fluentbit-azure-secrets -n orc8r \
+kubectl create secret generic fluentbit-azure-secrets -n kube-system \
   --from-literal=WorkspaceId=348f9c8b-a34b-45d9-ad64-f8ecea7d4cc5 \
   --from-literal=SharedKey=25H391QdmRLyTCW+vNsRyrgdvG+GQHHAv5fzQNpBbFsOkb+n/j/3G8Rhe0ZEEeXWm6tc8A7m7CkllcR80eCejQ==
 
