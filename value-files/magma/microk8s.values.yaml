@@ -59,14 +59,15 @@ controller:
 
 ## NMS
 nms:
-  secret:
-    certs: orc8r-nms-tls
-  certs:
-    enabled: true
-  deployment:
-    spec:
-      ssl_cert_name: tls.crt
-      ssl_cert_key_name: tls.key
+#   enabled: true
+#   secret:
+#     certs: orc8r-nms-tls
+#   certs:
+#     enabled: true
+#   deployment:
+#     spec:
+#       ssl_cert_name: tls.crt
+#       ssl_cert_key_name: tls.key
   imagePullSecrets:
     - name: orc8r-secrets-registry
   pod:
@@ -79,36 +80,36 @@ nms:
     secret:
       certs: orc8r-nms-tls
     manifests:
-      configmap: true
-      #secrets: true
-      certs: true
-      deployment: true
-      service: true
+#       configmap: true
+#       secrets: true
+#       certs: true
+#       deployment: true
+#       service: true
     #      rbac: true
     env:
-      api_host: orc8r-nginx-proxy:443
+#       api_host: orc8r-nginx-proxy:443
       mysql_host: postgresql
       #labels:
       #node_selector_key: extraRuntime
       #node_selector_value: virtlet
-    image:
-      repository: linuxfoundation.jfrog.io/magma-docker/magmalte  # change this
-      tag: 1.7.0  # change this
-  nginx:
-    manifests:
-      configmap: true
-      secrets: true
-      deployment: true
-      service: true
-      #rbac: true
-      #labels:
-      #node_selector_key: extraRuntime
-      #node_selector_value: virtlet
-    service:
-      type: LoadBalancer
-      port:
-        api:
-          targetPort: 9443
+#     image:
+#       repository: linuxfoundation.jfrog.io/magma-docker/magmalte  # change this
+#       tag: 1.7.0  # change this
+#   nginx:
+#     manifests:
+#       configmap: true
+#       secrets: true
+#       deployment: true
+#       service: true
+#       #rbac: true
+#       #labels:
+#       #node_selector_key: extraRuntime
+#       #node_selector_value: virtlet
+#     service:
+#       type: LoadBalancer
+#       port:
+#         api:
+#           targetPort: 9443
 
   #rbac: true
 
@@ -125,10 +126,10 @@ metrics:
           emptyDir: {}
       prometheusConfig:
         volumeSpec:
-#           emptyDir: {}
-          hostPath:
-            path: /configs/prometheus
-            type: DirectoryOrCreate
+          emptyDir: {}
+#           hostPath:
+#             path: /configs/prometheus
+#             type: DirectoryOrCreate
   prometheus:
     create: true
     
