@@ -17,3 +17,8 @@ k -n orc8r get secrets orc8r-controller-tls -o jsonpath='{.data.tls\.key}' | bas
 # export admin-operator certs
 k -n orc8r describe secrets orc8r-admin-operator-tls
 k -n orc8r get secrets orc8r-admin-operator-tls -o jsonpath='{.data.keystore\.p12}' | base64 -d > admin-operator.key.p12
+
+# get the p12 password
+k -n orc8r get secrets orc8r-admin-operator-pkcs12-password -o jsonpath='{.data.password}' | base64 -d
+# check admin p12 password
+k -n orc8r get secrets orc8r-admin-operator-tls -o jsonpath='{.data.keystore\.p12}' | base64 -d | openssl pkcs12 -nodes -passin pass:"password" -in -
