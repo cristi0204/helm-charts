@@ -6,7 +6,7 @@ k -n orc8r exec deploy/orc8r-orchestrator -- /var/opt/magma/bin/accessc list-cer
 # create host.nms admin user
 k -n orc8r exec -it deploy/nms-magmalte -- yarn setAdminPassword host cristian-marian.radu@atos.net P@rola123
 
-# https://github.com/ShubhamTatvamasi/magma-charts-04-09-2023/blob/master/charts/orc8r/charts/certs/templates/NOTES.txt
+https://github.com/ShubhamTatvamasi/magma-charts-04-09-2023/blob/master/charts/orc8r/charts/certs/templates/NOTES.txt
 # export  root certificates
 k -n orc8r get secrets orc8r-root-tls -o jsonpath='{.data.tls\.crt}' | base64 -d > rootCA.pem
 
