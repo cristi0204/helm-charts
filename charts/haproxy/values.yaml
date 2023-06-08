@@ -251,45 +251,45 @@ config: |
     bind :80
     http-request redirect scheme https code 301 unless { ssl_fc }
 
-  frontend orc8r
-    mode tcp
-    bind :443
-    option tcplog
-    acl tls req.ssl_hello_type 1
-    tcp-request inspect-delay 5s
-    tcp-request content accept if tls
+  # frontend orc8r
+  #   mode tcp
+  #   bind :443
+  #   option tcplog
+  #   acl tls req.ssl_hello_type 1
+  #   tcp-request inspect-delay 5s
+  #   tcp-request content accept if tls
 
-    acl nms                     req.ssl_sni -m reg -i .+.nms.{{ orc8r_domain }}
-    acl api                     req.ssl_sni -i api.{{ orc8r_domain }}
-    acl fluentd                 req.ssl_sni -i fluentd.{{ orc8r_domain }}
-    acl controller              req.ssl_sni -i controller.{{ orc8r_domain }}
-    acl bootstrapper-controller req.ssl_sni -i bootstrapper-controller.{{ orc8r_domain }}
+  #   acl nms                     req.ssl_sni -m reg -i .+.nms.{{ orc8r_domain }}
+  #   acl api                     req.ssl_sni -i api.{{ orc8r_domain }}
+  #   acl fluentd                 req.ssl_sni -i fluentd.{{ orc8r_domain }}
+  #   acl controller              req.ssl_sni -i controller.{{ orc8r_domain }}
+  #   acl bootstrapper-controller req.ssl_sni -i bootstrapper-controller.{{ orc8r_domain }}
 
-    use_backend nginx-proxy              if nms
-    use_backend orc8r-nginx-proxy        if api
-    use_backend fluentd                  if fluentd
-    use_backend orc8r-clientcert-nginx   if controller
-    use_backend bootstrapper-orc8r-nginx if bootstrapper-controller
+  #   use_backend nginx-proxy              if nms
+  #   use_backend orc8r-nginx-proxy        if api
+  #   use_backend fluentd                  if fluentd
+  #   use_backend orc8r-clientcert-nginx   if controller
+  #   use_backend bootstrapper-orc8r-nginx if bootstrapper-controller
 
-  backend fluentd
-    mode tcp
-    server svc fluentd:443
+  # backend fluentd
+  #   mode tcp
+  #   server svc fluentd:443
 
-  backend nginx-proxy
-    mode tcp
-    server svc nginx-proxy:443
+  # backend nginx-proxy
+  #   mode tcp
+  #   server svc nginx-proxy:443
 
-  backend orc8r-nginx-proxy
-    mode tcp
-    server svc orc8r-nginx-proxy:443
+  # backend orc8r-nginx-proxy
+  #   mode tcp
+  #   server svc orc8r-nginx-proxy:443
 
-  backend orc8r-clientcert-nginx
-    mode tcp
-    server svc orc8r-clientcert-nginx:443
+  # backend orc8r-clientcert-nginx
+  #   mode tcp
+  #   server svc orc8r-clientcert-nginx:443
 
-  backend bootstrapper-orc8r-nginx
-    mode tcp
-    server svc bootstrapper-orc8r-nginx:443
+  # backend bootstrapper-orc8r-nginx
+  #   mode tcp
+  #   server svc bootstrapper-orc8r-nginx:443
 # Mount path and sub path for config file
 configMount:
   mountPath: /usr/local/etc/haproxy/haproxy.cfg    # EE images use /etc/hapee-VERSION/hapee-lb.cfg
