@@ -238,10 +238,10 @@ config: |
     server web1 10.0.0.1:8080 check
 
 
-  frontend redirect
-    mode http
-    bind :80
-    http-request redirect scheme https code 301 unless { ssl_fc }
+  # frontend redirect
+  #   mode http
+  #   bind :80
+  #   http-request redirect scheme https code 301 unless { ssl_fc }
 
   # frontend orc8r
   #   mode tcp
