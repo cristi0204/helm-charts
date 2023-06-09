@@ -22,10 +22,14 @@ fileConfigs:
       @type elasticsearch
       @log_level info
       include_tag_key true
-      host "#{ENV['OUTPUT_HOST']}"
-      port "#{ENV['OUTPUT_PORT']}"
-      scheme "#{ENV['OUTPUT_SCHEME']}"
-      ssl_version "#{ENV['OUTPUT_SSL_VERSION']}"
+#       host "#{ENV['OUTPUT_HOST']}"
+#       port "#{ENV['OUTPUT_PORT']}"
+#       scheme "#{ENV['OUTPUT_SCHEME']}"
+#       ssl_version "#{ENV['OUTPUT_SSL_VERSION']}"
+      host elasticsearch-master
+      port 9200
+      scheme http
+      ssl_version !!!!!!!!!!
       logstash_format true
       logstash_prefix "eventd"
       reconnect_on_error true
