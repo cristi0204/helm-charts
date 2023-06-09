@@ -24,6 +24,9 @@ service:
       name: forward
       protocol: TCP
 
+configMapConfigs:
+ - forward-input.conf
+ - output.conf
 
 # fileConfigs:
 configMaps:
@@ -57,7 +60,7 @@ configMaps:
       log_es_400_reason true
       <buffer>
         @type file
-        path /var/log/fluentd-buffers/eventd.kubernetes.system.buffer
+        path /var/log/orc8r-fluentd-buffers/eventd.kubernetes.system.buffer
         flush_mode interval
         retry_type exponential_backoff
         flush_thread_count 2
@@ -86,7 +89,7 @@ configMaps:
       log_es_400_reason true
       <buffer>
         @type file
-        path /var/log/fluentd-buffers/kubernetes.system.buffer
+        path /var/log/orc8r-fluentd-buffers/kubernetes.system.buffer
         flush_mode interval
         retry_type exponential_backoff
         flush_thread_count 2
