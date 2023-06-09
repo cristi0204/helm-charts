@@ -1,7 +1,8 @@
 
 #values:
 #
-configMaps:
+fileConfigs:
+#configMaps:
   forward-input.conf: |-
     <source>
       @type forward
