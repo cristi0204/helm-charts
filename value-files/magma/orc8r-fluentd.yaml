@@ -1,4 +1,30 @@
 
+extraVolumeMounts:
+  - mountPath: /certs
+    name: certs
+    readOnly: true
+extraVolumes:
+  - name: certs
+    secret:
+      secretName: orc8r-fluentd-tls
+      items:
+        - key: certifier.pem
+          path: ca.crt
+        - key: fluentd.pem
+          path: tls.crt
+        - key: fluentd.key
+          path: tls.key
+# output:
+#   host: elasticsearch-master
+#   port: 9200
+#   scheme: http
+service:
+  ports:
+    - containerPort: 443
+      name: forward
+      protocol: TCP
+
+
 fileConfigs:
 #configMaps:
   forward-input.conf: |-
@@ -10,9 +36,6 @@ fileConfigs:
         ca_path /certs/certifier.pem
         cert_path /certs/fluentd.pem
         private_key_path /certs/fluentd.key
-#         ca_path /certs/ca.crt
-#         cert_path /certs/tls.crt
-#         private_key_path /certs/tls.key
         client_cert_auth true
       </transport>
     </source>
@@ -75,28 +98,3 @@ fileConfigs:
         overflow_action block
       </buffer>
     </match>
-extraVolumeMounts:
-  - mountPath: /certs
-    name: certs
-    readOnly: true
-extraVolumes:
-  - name: certs
-    secret:
-      secretName: orc8r-fluentd-tls
-      items:
-        - key: certifier.pem
-          path: ca.crt
-        - key: fluentd.pem
-          path: tls.crt
-        - key: fluentd.key
-          path: tls.key
-# output:
-#   host: elasticsearch-master
-#   port: 9200
-#   scheme: http
-service:
-  ports:
-    - containerPort: 443
-      name: forward
-      protocol: TCP
-
