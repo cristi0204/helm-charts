@@ -22,14 +22,10 @@ fileConfigs:
       @type elasticsearch
       @log_level info
       include_tag_key true
-#       host "#{ENV['OUTPUT_HOST']}"
-#       port "#{ENV['OUTPUT_PORT']}"
-#       scheme "#{ENV['OUTPUT_SCHEME']}"
-#       ssl_version "#{ENV['OUTPUT_SSL_VERSION']}"
       host elasticsearch-master
       port 9200
       scheme http
-      ssl_version !!!!!!!!!!
+      ssl_version TLSv1
       logstash_format true
       logstash_prefix "eventd"
       reconnect_on_error true
@@ -45,8 +41,8 @@ fileConfigs:
         flush_interval 5s
         retry_forever
         retry_max_interval 30
-        chunk_limit_size "#{ENV['OUTPUT_BUFFER_CHUNK_LIMIT']}"
-        queue_limit_length "#{ENV['OUTPUT_BUFFER_QUEUE_LIMIT']}"
+        chunk_limit_size 2M
+        queue_limit_length 8
         overflow_action block
       </buffer>
     </match>
@@ -55,10 +51,10 @@ fileConfigs:
       @type elasticsearch
       @log_level info
       include_tag_key true
-      host "#{ENV['OUTPUT_HOST']}"
-      port "#{ENV['OUTPUT_PORT']}"
-      scheme "#{ENV['OUTPUT_SCHEME']}"
-      ssl_version "#{ENV['OUTPUT_SSL_VERSION']}"
+      host elasticsearch-master
+      port 9200
+      scheme http
+      ssl_version TLSv1  
       logstash_format true
       logstash_prefix "magma"
       reconnect_on_error true
@@ -74,8 +70,8 @@ fileConfigs:
         flush_interval 5s
         retry_forever
         retry_max_interval 30
-        chunk_limit_size "#{ENV['OUTPUT_BUFFER_CHUNK_LIMIT']}"
-        queue_limit_length "#{ENV['OUTPUT_BUFFER_QUEUE_LIMIT']}"
+        chunk_limit_size 2M
+        queue_limit_length 8
         overflow_action block
       </buffer>
     </match>
