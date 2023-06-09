@@ -1,6 +1,4 @@
 
-#values:
-#
 fileConfigs:
 #configMaps:
   forward-input.conf: |-
@@ -77,25 +75,25 @@ fileConfigs:
         overflow_action block
       </buffer>
     </match>
-extraVolumeMounts:
-  - mountPath: /certs
-    name: certs
-    readOnly: true
-extraVolumes:
-  - name: certs
-    secret:
-      defaultMode: 420
-      secretName: orc8r-fluentd-tls
-output:
-  host: elasticsearch-master
-  port: 9200
-  scheme: http
-rbac:
-  create: false
-replicaCount: 1
-service:
-  ports:
-    - containerPort: 443
-      name: forward
-      protocol: TCP
-  type: ClusterIP #"{{ magma_service_type }}"
+# extraVolumeMounts:
+#   - mountPath: /certs
+#     name: certs
+#     readOnly: true
+# extraVolumes:
+#   - name: certs
+#     secret:
+#       defaultMode: 420
+#       secretName: orc8r-fluentd-tls
+# output:
+#   host: elasticsearch-master
+#   port: 9200
+#   scheme: http
+# rbac:
+#   create: false
+# replicaCount: 1
+# service:
+#   ports:
+#     - containerPort: 443
+#       name: forward
+#       protocol: TCP
+#   type: ClusterIP #"{{ magma_service_type }}"
