@@ -24,13 +24,13 @@ service:
       name: forward
       protocol: TCP
 
-configMapConfigs:
- - forward-input.conf
- - output.conf
+# configMapConfigs:
+#  - forward-input.conf
+#  - output.conf
 
 # fileConfigs:
 configMaps:
-  forward-input.conf: |-
+  orc8r-forward-input.conf: |-
     <source>
       @type forward
       port 443
@@ -42,7 +42,7 @@ configMaps:
         client_cert_auth true
       </transport>
     </source>
-  output.conf: |-
+  orc8r-output.conf: |-
     <match eventd>
       @id eventd_elasticsearch
       @type elasticsearch
@@ -101,3 +101,7 @@ configMaps:
         overflow_action block
       </buffer>
     </match>
+  fluent.conf: |-
+    @include /fluentd/etc/orc8r-forward-input.conf
+    @include /fluentd/etc/orc8r-output.conf
+    
