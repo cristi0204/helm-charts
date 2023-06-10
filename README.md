@@ -194,3 +194,8 @@ bootstrapper:
                 name: root
                 readOnly: true
                 subPath: tls.crt
+
+bootstrapper.containers.volumeMounts[0].mountPath
+bootstrapper.containers.volumeMounts[0].name
+bootstrapper.containers.volumeMounts[0].readOnly
+bootstrapper.containers.volumeMounts[0].subPath
