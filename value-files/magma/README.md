@@ -4,7 +4,7 @@ k -n orc8r exec deploy/orc8r-orchestrator -- /var/opt/magma/bin/accessc add-exis
 k -n orc8r exec deploy/orc8r-orchestrator -- /var/opt/magma/bin/accessc list-certs
 
 # create host.nms admin user
-k -n orc8r exec -it deploy/nms-magmalte -- yarn setAdminPassword host cristian-marian.radu@atos.net P@rola123
+k -n orc8r exec -it deploy/nms-magmalte -- yarn setAdminPassword magma-test cristian-marian.radu@atos.net P@rola123
 
 https://github.com/ShubhamTatvamasi/magma-charts-04-09-2023/blob/master/charts/orc8r/charts/certs/templates/NOTES.txt
 # export  root certificates
@@ -22,3 +22,9 @@ k -n orc8r get secrets orc8r-admin-operator-tls -o jsonpath='{.data.keystore\.p1
 k -n orc8r get secrets orc8r-admin-operator-pkcs12-password -o jsonpath='{.data.password}' | base64 -d
 # check admin p12 password
 k -n orc8r get secrets orc8r-admin-operator-tls -o jsonpath='{.data.keystore\.p12}' | base64 -d | openssl pkcs12 -nodes -passin pass:"password" -in -
+
+# fix bootstrapper
+              - mountPath: /var/opt/magma/certs/rootCA.pem
+                name: root
+                readOnly: true
+                subPath: tls.crt
