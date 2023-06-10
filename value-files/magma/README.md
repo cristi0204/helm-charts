@@ -24,7 +24,7 @@ k -n orc8r get secrets orc8r-admin-operator-pkcs12-password -o jsonpath='{.data.
 k -n orc8r get secrets orc8r-admin-operator-tls -o jsonpath='{.data.keystore\.p12}' | base64 -d | openssl pkcs12 -nodes -passin pass:"password" -in -
 
 # fix bootstrapper
-              - mountPath: /var/opt/magma/certs/rootCA.pem
-                name: root
-                readOnly: true
-                subPath: tls.crt
+                - mountPath: /var/opt/magma/certs/rootCA.pem
+                    name: root
+                    readOnly: true
+                    subPath: tls.crt
