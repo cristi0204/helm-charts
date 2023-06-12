@@ -7,7 +7,7 @@ entries:
           description: "Added image reference by digest."
     apiVersion: v1
     appVersion: 2.1.4
-    created: "2023-06-10T16:15:14.145148965Z"
+    created: "2023-06-12T11:11:57.014136256Z"
     description: Fast and lightweight log processor and forwarder or Linux, OSX and
       BSD family operating systems.
     digest: a55c5b47f99cd9e9eb92543f37bcfc0b4f58e7dd7526b4aee797d9f79226b1c1
@@ -38,7 +38,7 @@ entries:
           description: "Added image reference by digest."
     apiVersion: v1
     appVersion: 2.1.4
-    created: "2023-06-10T16:15:14.142487461Z"
+    created: "2023-06-12T11:11:57.01107434Z"
     description: Fast and lightweight log processor and forwarder or Linux, OSX and
       BSD family operating systems.
     digest: 884820ae361ac038d541212d3e76a7e2988177ddc1a9a7fa6e9d28f06ae89865
@@ -69,7 +69,7 @@ entries:
           description: "Added image reference by digest."
     apiVersion: v1
     appVersion: 2.1.4
-    created: "2023-06-10T16:15:14.139464986Z"
+    created: "2023-06-12T11:11:57.00733812Z"
     description: Fast and lightweight log processor and forwarder or Linux, OSX and
       BSD family operating systems.
     digest: 2590d1a313019f511f2153f73a9b5d749517160dc76aa35b4893cd67d5797d59
@@ -97,7 +97,7 @@ entries:
   nifi:
   - apiVersion: v2
     appVersion: 1.21.2
-    created: "2023-06-10T16:15:14.235792462Z"
+    created: "2023-06-12T11:11:57.097663583Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -118,14 +118,14 @@ entries:
       version: ~1.2.4
     description: Apache NiFi is a software project from the Apache Software Foundation
       designed to automate the flow of data between software systems.
-    digest: c1409ba5b002035451a4a1d006521e9692341d6563809b0cc65dae8006def89e
+    digest: 6d191438fcc8b609698e6251d91d0b9bc85e117cef7dc3490d8c8c72bf8e03ca
     name: nifi
     urls:
     - nifi/nifi-1.21.2.tgz
     version: 1.21.2
   - apiVersion: v2
     appVersion: 1.21.1
-    created: "2023-06-10T16:15:14.22771655Z"
+    created: "2023-06-12T11:11:57.086589011Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -153,7 +153,7 @@ entries:
     version: 1.21.1
   - apiVersion: v2
     appVersion: 1.21.0.1
-    created: "2023-06-10T16:15:14.218912276Z"
+    created: "2023-06-12T11:11:57.079779801Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -181,7 +181,7 @@ entries:
     version: 1.21.0
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-06-10T16:15:14.243487471Z"
+    created: "2023-06-12T11:11:57.107749004Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -209,7 +209,7 @@ entries:
     version: 1.9.0
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-06-10T16:15:14.210450635Z"
+    created: "2023-06-12T11:11:57.072038723Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -237,7 +237,7 @@ entries:
     version: 1.0.3
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-06-10T16:15:14.201672127Z"
+    created: "2023-06-12T11:11:57.064226957Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -265,7 +265,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-06-10T16:15:14.19194554Z"
+    created: "2023-06-12T11:11:57.056857364Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -293,7 +293,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-06-10T16:15:14.180257912Z"
+    created: "2023-06-12T11:11:57.045996153Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -321,7 +321,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: 1.21.0
-    created: "2023-06-10T16:15:14.167521521Z"
+    created: "2023-06-12T11:11:57.034562039Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -349,7 +349,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 1.21.0
-    created: "2023-06-10T16:15:14.155908894Z"
+    created: "2023-06-12T11:11:57.026561246Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -375,4 +375,35 @@ entries:
     urls:
     - nifi/nifi-0.0.1.tgz
     version: 0.0.1
-generated: "2023-06-10T16:15:14.137481006Z"
+  ueransim-gnb:
+  - annotations:
+      category: apps
+    apiVersion: v2
+    appVersion: 3.2.6
+    created: "2023-06-12T11:11:57.109837809Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 1.x.x
+    description: ueransim gNodeB for 5G RAN simulation
+    digest: 3bb9233ddb3145cef64ccbad63e331ac6c22de69711b4596188531e37669f646
+    home: https://github.com/aligungr/UERANSIM
+    icon: https://github.com/aligungr/UERANSIM/raw/master/.github/logo.png
+    keywords:
+    - apps
+    - gradiant
+    - k8s
+    maintainers:
+    - email: cgiraldo@gradiant.org
+      name: cgiraldo
+    - email: avrodriguez@gradiant.org
+      name: avrodriguez
+    name: ueransim-gnb
+    sources:
+    - https://github.com/aligungr/UERANSIM
+    urls:
+    - ueransim-gnb/ueransim-gnb-0.2.5.tgz
+    version: 0.2.5
+generated: "2023-06-12T11:11:57.004330797Z"
