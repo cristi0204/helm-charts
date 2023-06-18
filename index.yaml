@@ -7,7 +7,7 @@ entries:
           description: "Added image reference by digest."
     apiVersion: v1
     appVersion: 2.1.4
-    created: "2023-06-18T09:09:50.668419386Z"
+    created: "2023-06-18T09:20:18.441048725Z"
     description: Fast and lightweight log processor and forwarder or Linux, OSX and
       BSD family operating systems.
     digest: a55c5b47f99cd9e9eb92543f37bcfc0b4f58e7dd7526b4aee797d9f79226b1c1
@@ -38,7 +38,7 @@ entries:
           description: "Added image reference by digest."
     apiVersion: v1
     appVersion: 2.1.4
-    created: "2023-06-18T09:09:50.66677313Z"
+    created: "2023-06-18T09:20:18.439477072Z"
     description: Fast and lightweight log processor and forwarder or Linux, OSX and
       BSD family operating systems.
     digest: 884820ae361ac038d541212d3e76a7e2988177ddc1a9a7fa6e9d28f06ae89865
@@ -69,7 +69,7 @@ entries:
           description: "Added image reference by digest."
     apiVersion: v1
     appVersion: 2.1.4
-    created: "2023-06-18T09:09:50.664440292Z"
+    created: "2023-06-18T09:20:18.437261857Z"
     description: Fast and lightweight log processor and forwarder or Linux, OSX and
       BSD family operating systems.
     digest: 2590d1a313019f511f2153f73a9b5d749517160dc76aa35b4893cd67d5797d59
@@ -97,7 +97,27 @@ entries:
   logging:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2023-06-18T09:09:50.669441103Z"
+    created: "2023-06-18T09:20:18.44323209Z"
+    dependencies:
+    - condition: elasticsearch-curator.create
+      name: elasticsearch-curator
+      repository: https://lebenitza.github.io/charts
+      version: 3.2.0
+    description: A Helm chart for log aggregation infrastructure
+    digest: 24e241ce14128887fa87006eb37d868a70d250f1d176ce3e38a44288a09ac14b
+    keywords:
+    - magma
+    - orc8r
+    - logging
+    name: logging
+    sources:
+    - https://github.com/magma/magma
+    urls:
+    - logging/logging-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2023-06-18T09:20:18.442142774Z"
     dependencies:
     - condition: elasticsearch-curator.create
       name: elasticsearch-curator
@@ -118,7 +138,7 @@ entries:
   nifi:
   - apiVersion: v2
     appVersion: 1.21.2
-    created: "2023-06-18T09:09:50.731252398Z"
+    created: "2023-06-18T09:20:18.510669444Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -139,14 +159,14 @@ entries:
       version: ~1.2.4
     description: Apache NiFi is a software project from the Apache Software Foundation
       designed to automate the flow of data between software systems.
-    digest: 62557ffedc08ba4a8d2c00c6adb3188b62a90cb576f45bb780e3e0e02cdcf38c
+    digest: ce57d465365a8fcf386361462b3aa80ac8def844c7837eaf9ba26cf1259f54a7
     name: nifi
     urls:
     - nifi/nifi-1.21.2.tgz
     version: 1.21.2
   - apiVersion: v2
     appVersion: 1.21.1
-    created: "2023-06-18T09:09:50.724352265Z"
+    created: "2023-06-18T09:20:18.50367577Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -174,7 +194,7 @@ entries:
     version: 1.21.1
   - apiVersion: v2
     appVersion: 1.21.0.1
-    created: "2023-06-18T09:09:50.717308935Z"
+    created: "2023-06-18T09:20:18.497164287Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -202,7 +222,7 @@ entries:
     version: 1.21.0
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-06-18T09:09:50.738222741Z"
+    created: "2023-06-18T09:20:18.517712814Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -230,7 +250,7 @@ entries:
     version: 1.9.0
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-06-18T09:09:50.710977948Z"
+    created: "2023-06-18T09:20:18.489996796Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -258,7 +278,7 @@ entries:
     version: 1.0.3
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-06-18T09:09:50.704169493Z"
+    created: "2023-06-18T09:20:18.480199935Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -286,7 +306,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-06-18T09:09:50.69781672Z"
+    created: "2023-06-18T09:20:18.473815093Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -314,7 +334,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.16.3
-    created: "2023-06-18T09:09:50.690931028Z"
+    created: "2023-06-18T09:20:18.466331566Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -342,7 +362,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: 1.21.0
-    created: "2023-06-18T09:09:50.683334378Z"
+    created: "2023-06-18T09:20:18.457439486Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -370,7 +390,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 1.21.0
-    created: "2023-06-18T09:09:50.676969681Z"
+    created: "2023-06-18T09:20:18.450980836Z"
     dependencies:
     - condition: zookeeper.enabled
       name: zookeeper
@@ -401,7 +421,7 @@ entries:
       category: apps
     apiVersion: v2
     appVersion: 3.2.6
-    created: "2023-06-18T09:09:50.740107495Z"
+    created: "2023-06-18T09:20:18.51957788Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -409,7 +429,7 @@ entries:
       - bitnami-common
       version: 1.x.x
     description: ueransim gNodeB for 5G RAN simulation
-    digest: 3c1142ad743de9395fe3fb0bd9e7f5a4d89b81b31bfa65dee8ab3fd1f72b1ac2
+    digest: 1134fcdbd98bf366886fbd114f2181a5619c10ec835aa650aadfe55feffe1c25
     home: https://github.com/aligungr/UERANSIM
     icon: https://github.com/aligungr/UERANSIM/raw/master/.github/logo.png
     keywords:
@@ -427,4 +447,4 @@ entries:
     urls:
     - ueransim-gnb/ueransim-gnb-0.2.5.tgz
     version: 0.2.5
-generated: "2023-06-18T09:09:50.662692264Z"
+generated: "2023-06-18T09:20:18.435430844Z"
