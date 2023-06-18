@@ -24,55 +24,23 @@ data:
       @type forward
       port {{ .Values.fluentd_forward.service.targetPort }}
       bind 0.0.0.0
-
       <transport tls>
-        cert_path /var/opt/magma/certs/fluentd.pem
-        private_key_path /var/opt/magma/certs/fluentd.key
-
+        ca_path /certs/certifier.pem
+        cert_path /certs/fluentd.pem
+        private_key_path /certs/fluentd.key
         client_cert_auth true
-        ca_path /var/opt/magma/certs/certifier.pem
       </transport>
     </source>
-
   output.conf: |-
-    <match **>
-      @id elasticsearch
-      @type elasticsearch
-      @log_level info
-      include_tag_key true
-      host "#{ENV['FLUENT_ELASTICSEARCH_HOST']}"
-      port "#{ENV['FLUENT_ELASTICSEARCH_PORT']}"
-      scheme "#{ENV['FLUENT_ELASTICSEARCH_SCHEME']}"
-      ssl_version "#{ENV['FLUENT_ELASTICSEARCH_SSL_VERSION']}"
-      logstash_format true
-      logstash_prefix "magma"
-      reconnect_on_error true
-      reload_on_failure true
-      reload_connections false
-      log_es_400_reason true
-      <buffer>
-        @type file
-        path /var/log/fluentd-buffers/kubernetes.system.buffer
-        flush_mode interval
-        retry_type exponential_backoff
-        flush_thread_count 2
-        flush_interval 5s
-        retry_forever
-        retry_max_interval 30
-        chunk_limit_size "#{ENV['FLUENT_ELASTICSEARCH_BUFFER_CHUNK_LIMIT_SIZE']}"
-        queue_limit_length "#{ENV['FLUENT_ELASTICSEARCH_BUFFER_QUEUE_LIMIT_LENGTH']}"
-        overflow_action block
-      </buffer>
-    </match>
     <match eventd>
       @id eventd_elasticsearch
       @type elasticsearch
       @log_level info
       include_tag_key true
-      host "#{ENV['FLUENT_ELASTICSEARCH_HOST']}"
-      port "#{ENV['FLUENT_ELASTICSEARCH_PORT']}"
-      scheme "#{ENV['FLUENT_ELASTICSEARCH_SCHEME']}"
-      ssl_version "#{ENV['FLUENT_ELASTICSEARCH_SSL_VERSION']}"
+      host elasticsearch-master
+      port 9200
+      scheme http
+      ssl_version TLSv1
       logstash_format true
       logstash_prefix "eventd"
       reconnect_on_error true
@@ -81,45 +49,47 @@ data:
       log_es_400_reason true
       <buffer>
         @type file
-        path /var/log/fluentd-buffers/eventd.kubernetes.system.buffer
+        path /var/log/orc8r-fluentd-buffers/eventd.kubernetes.system.buffer
         flush_mode interval
         retry_type exponential_backoff
         flush_thread_count 2
         flush_interval 5s
         retry_forever
         retry_max_interval 30
-        chunk_limit_size "#{ENV['FLUENT_ELASTICSEARCH_BUFFER_CHUNK_LIMIT_SIZE']}"
-        queue_limit_length "#{ENV['FLUENT_ELASTICSEARCH_BUFFER_QUEUE_LIMIT_LENGTH']}"
+        chunk_limit_size 2M
+        queue_limit_length 8
         overflow_action block
       </buffer>
     </match>
-    # <match **>
-    #   @type elasticsearch
-    #   @id out_es
-    #   @log_level info
-    #   include_tag_key true
-    #   host "#{ENV['FLUENT_ELASTICSEARCH_HOST']}"
-    #   port "#{ENV['FLUENT_ELASTICSEARCH_PORT']}"
-    #   scheme "#{ENV['FLUENT_ELASTICSEARCH_SCHEME'] || 'http'}"
-    #   ssl_verify "#{ENV['FLUENT_ELASTICSEARCH_SSL_VERIFY'] || 'false'}"
-    #   ssl_version "#{ENV['FLUENT_ELASTICSEARCH_SSL_VERSION'] || 'TLSv1'}"
-    #   reload_connections "#{ENV['FLUENT_ELASTICSEARCH_RELOAD_CONNECTIONS'] || 'false'}"
-    #   reconnect_on_error "#{ENV['FLUENT_ELASTICSEARCH_RECONNECT_ON_ERROR'] || 'true'}"
-    #   reload_on_failure "#{ENV['FLUENT_ELASTICSEARCH_RELOAD_ON_FAILURE'] || 'true'}"
-    #   log_es_400_reason "#{ENV['FLUENT_ELASTICSEARCH_LOG_ES_400_REASON'] || 'false'}"
-    #   logstash_prefix "#{ENV['FLUENT_ELASTICSEARCH_LOGSTASH_PREFIX'] || 'fluentd'}"
-    #   logstash_format "#{ENV['FLUENT_ELASTICSEARCH_LOGSTASH_FORMAT'] || 'true'}"
-    #   index_name "#{ENV['FLUENT_ELASTICSEARCH_LOGSTASH_INDEX_NAME'] || 'fluentd'}"
-    #   type_name "#{ENV['FLUENT_ELASTICSEARCH_LOGSTASH_TYPE_NAME'] || 'fluentd'}"
-    #   <buffer>
-    #     flush_thread_count "#{ENV['FLUENT_ELASTICSEARCH_BUFFER_FLUSH_THREAD_COUNT'] || '8'}"
-    #     flush_interval "#{ENV['FLUENT_ELASTICSEARCH_BUFFER_FLUSH_INTERVAL'] || '5s'}"
-    #     chunk_limit_size "#{ENV['FLUENT_ELASTICSEARCH_BUFFER_CHUNK_LIMIT_SIZE'] || '2M'}"
-    #     queue_limit_length "#{ENV['FLUENT_ELASTICSEARCH_BUFFER_QUEUE_LIMIT_LENGTH'] || '32'}"
-    #     retry_max_interval "#{ENV['FLUENT_ELASTICSEARCH_BUFFER_RETRY_MAX_INTERVAL'] || '30'}"
-    #     retry_forever true
-    #   </buffer>
-    # </match>
+    <match **>
+      @id elasticsearch
+      @type elasticsearch
+      @log_level info
+      include_tag_key true
+      host elasticsearch-master
+      port 9200
+      scheme http
+      ssl_version TLSv1  
+      logstash_format true
+      logstash_prefix "magma"
+      reconnect_on_error true
+      reload_on_failure true
+      reload_connections false
+      log_es_400_reason true
+      <buffer>
+        @type file
+        path /var/log/orc8r-fluentd-buffers/kubernetes.system.buffer
+        flush_mode interval
+        retry_type exponential_backoff
+        flush_thread_count 2
+        flush_interval 5s
+        retry_forever
+        retry_max_interval 30
+        chunk_limit_size 2M
+        queue_limit_length 8
+        overflow_action block
+      </buffer>
+    </match>
 
 {{ if .Values.fluentd_forward.dp_output }}
   dp-output.conf: |-
@@ -153,7 +123,7 @@ data:
 {{ end }}
 
   fluent.conf: |-
-    @include /etc/fluent/forward.conf
+    @include /etc/fluent/forward.conf 
 {{- if .Values.fluentd_forward.dp_output }}
     @include /etc/fluent/dp-output.conf
 {{- end }}
