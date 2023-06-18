@@ -42,10 +42,45 @@ fluentd_forward:
     pullPolicy: IfNotPresent
 
   env:
-    elastic_host: "elasticsearch-master"
-    elastic_port: "9200"
-    elastic_scheme: "http"
-    elastic_flush_interval: 5s
+    # - name: "FLUENTD_CONF"
+    #   value: "/etc/myfluent/fluent.conf"
+    - name: FLUENT_ELASTICSEARCH_HOST
+      value: "elasticsearch-master"
+    - name: FLUENT_ELASTICSEARCH_PORT
+      value: "9200"
+    - name: FLUENT_ELASTICSEARCH_SCHEME
+      value: "http"
+    - name: FLUENT_ELASTICSEARCH_SSL_VERIFY
+      value: "false"
+    - name: FLUENT_ELASTICSEARCH_SSL_VERSION
+      value: "TLSv1"
+    - name: FLUENT_ELASTICSEARCH_RELOAD_CONNECTIONS
+      value: "false"
+    - name: FLUENT_ELASTICSEARCH_RECONNECT_ON_ERROR
+      value: "true"
+    - name: FLUENT_ELASTICSEARCH_RELOAD_ON_FAILURE
+      value: "true"
+    - name: FLUENT_ELASTICSEARCH_LOG_ES_400_REASON
+      value: "true"
+    - name: FLUENT_ELASTICSEARCH_DP_LOGSTASH_PREFIX
+      value: "dp"
+    - name: FLUENT_ELASTICSEARCH_LOGSTASH_FORMAT
+      value: "true"
+    - name: FLUENT_ELASTICSEARCH_LOGSTASH_DP_INDEX_NAME
+      value: "dp"
+    - name: FLUENT_ELASTICSEARCH_LOGSTASH_TYPE_NAME
+      value: "fluentd"
+    - name: FLUENT_ELASTICSEARCH_BUFFER_FLUSH_THREAD_COUNT
+      value: "8"
+    - name: FLUENT_ELASTICSEARCH_BUFFER_FLUSH_INTERVAL
+      value: "5s"
+    - name: FLUENT_ELASTICSEARCH_BUFFER_CHUNK_LIMIT_SIZE
+      value: "2M"
+    - name: FLUENT_ELASTICSEARCH_BUFFER_QUEUE_LIMIT_LENGTH
+      value: "32"
+    - name: FLUENT_ELASTICSEARCH_BUFFER_RETRY_MAX_INTERVAL
+      value: "30"
+
 
   resources: {}
 
