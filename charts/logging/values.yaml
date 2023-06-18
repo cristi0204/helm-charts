@@ -37,8 +37,8 @@ fluentd_forward:
   affinity: {}
 
   image:
-    repository:
-    tag:
+    repository: "gcr.io/google-containers/fluentd-elasticsearch"
+    tag: "v2.4.0"
     pullPolicy: IfNotPresent
 
   env:
