@@ -82,7 +82,7 @@ spec:
 
           volumeMounts:
             - name: config-volume
-              mountPath: /fluentd/etc
+              mountPath: /etc/fluent
             - name: certs
               mountPath: /var/opt/magma/certs/fluentd.pem
               subPath: tls.crt
