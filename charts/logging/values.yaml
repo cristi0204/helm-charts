@@ -12,7 +12,7 @@ fluentd_daemon:
     pullPolicy: IfNotPresent
 
   env:
-    elastic_host: "elasticsearch-logging"
+    elastic_host: "elasticsearch-master"
     elastic_port: "9200"
     elastic_scheme: "http"
 
