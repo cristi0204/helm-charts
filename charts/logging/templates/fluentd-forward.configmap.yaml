@@ -72,7 +72,7 @@ data:
       host "#{ENV['FLUENT_ELASTICSEARCH_HOST']}"
       port "#{ENV['FLUENT_ELASTICSEARCH_PORT']}"
       scheme "#{ENV['FLUENT_ELASTICSEARCH_SCHEME']}"
-      ssl_version "#{ENV['OUTPUT_SSL_VERSION']}"
+      ssl_version "#{ENV['FLUENT_ELASTICSEARCH_SSL_VERSION']}"
       logstash_format true
       logstash_prefix "eventd"
       reconnect_on_error true
