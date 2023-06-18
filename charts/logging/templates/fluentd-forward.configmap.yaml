@@ -25,9 +25,9 @@ data:
       port {{ .Values.fluentd_forward.service.targetPort }}
       bind 0.0.0.0
       <transport tls>
-        ca_path /certs/certifier.pem
-        cert_path /certs/fluentd.pem
-        private_key_path /certs/fluentd.key
+        ca_path /var/opt/magma/certs/certifier.pem
+        cert_path var/opt/magma/certs/fluentd.pem
+        private_key_path var/opt/magma/certs/fluentd.key
         client_cert_auth true
       </transport>
     </source>
