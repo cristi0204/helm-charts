@@ -1,0 +1,25 @@
+echo "## active_line 80 ##"
+apiVersion: v1
+echo "## active_line 81 ##"
+kind: PersistentVolumeClaim
+echo "## active_line 82 ##"
+metadata:
+echo "## active_line 83 ##"
+  name: {{ include "minifi.fullname" . }}
+echo "## active_line 84 ##"
+  labels:
+echo "## active_line 85 ##"
+    {{- include "minifi.labels" . | nindent 4 }}
+echo "## active_line 86 ##"
+spec:
+echo "## active_line 87 ##"
+  accessModes:
+echo "## active_line 88 ##"
+    - ReadWriteOnce
+echo "## active_line 89 ##"
+  resources:
+echo "## active_line 90 ##"
+    requests:
+echo "## active_line 91 ##"
+      storage: 1Gi
+echo "## active_line 92 ##"
